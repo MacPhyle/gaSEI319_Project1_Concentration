@@ -20,7 +20,7 @@ h2 {
     font-size: 36px;
 }
 
-.layout {
+#layout {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr repeat(3, auto);
     grid-template-columns: repeat(6, auto);
@@ -57,4 +57,18 @@ h2 {
     grid-row-end: 1;
     font-family: "agenda-one", sans-serif;
     font-size: 20px;
+}
+
+#timer {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    font-family: "agenda-one", sans-serif;
+    font-weight: 900;
+    font-size: 150%;
+}
+
+.card {
+    height: auto;
 }
