@@ -1,12 +1,22 @@
 //countdown timer
 
+let secondsRemaining = 16;
+
+function increment() {
+        secondsRemaining--
+        // document.getElementById("countdown").innerHTML = secondsRemaining;
+        console.log(secondsRemaining);
+        if (secondsRemaining == -1) {
+            console.log("TIME'S UP!");
+            return;
+        }
+}
+
+setInterval(increment, 1000)
+
+
+
 // touching card starts timer
-
-// number of seconds begins at 15
-
-// interval is 1 second
-
-// end of timer at 15 seconds
 
 // at begin of timer display 15
 // after 1s display 14
@@ -28,19 +38,21 @@
 
 // i=15 and is >= 0, run loop and decrease by 1
 
-let secondsRemaining = 15;
+// let secondsRemaining = 15;
 
-function timeLoop() {
-    if (secondsRemaining >= 0) {
-        document.getElementById("timer").innerHTML = secondsRemaining;
-        secondsRemaining--
-    }else if (secondsRemaining = -1) {
-        document.getElementById("timer").innerHTML = "TIME'S UP!"
-        return;
-    }
-}
+// function timeLoop() {
+//     if (secondsRemaining >= 0) {
+//         document.getElementById("timer").innerHTML = secondsRemaining;
+//         secondsRemaining--
+//     }else if (secondsRemaining = -1) {
+//         document.getElementById("timer").innerHTML = "TIME'S UP!"
+//         return;
+//     }
+// }
 
-timeLoop();
+// // setInterval
+
+// timeLoop();
 
 // for (let i = 15; i >= 0; i--) {
     
