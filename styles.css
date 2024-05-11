@@ -2,28 +2,38 @@ body {
     background-image: url("images/wood-bkgd.png");
     background-size: cover;
     background-repeat: repeat-n;
+    align-items: center;
 }
 
 h1 {
-    font-family: "Slackey", sans-serif;
-    font-weight: 400;
+    font-family: "jaf-zalamander", sans-serif;
+    font-weight: 700;
     font-style: normal;
     font-size: 100px;
     color: #E74C3C;
-    line-height: 20%;
+    line-height: 50%;
+    text-align: center;
 }
 
 h2 {
     font-family: "agenda-one", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 36px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 20%;
 }
 
+/* .grid-item:nth-child(1) {
+    grid-row: 1 / span 2;
+} */
+
 #layout {
+    margin-left: 500px;
+    margin-right: 500px;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr repeat(3, auto);
-    grid-template-columns: repeat(6, auto);
+    grid-template-rows: 100px 40px repeat(3, 210px);
+    grid-template-columns: repeat(6, 150px);
     /* grid-template-areas:
         "header header header header header header header"
         "main main main main main main main"; */
@@ -34,167 +44,179 @@ h2 {
 
 #title {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 5;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 1;
     /* grid-row: 1;
     grid-column: 0 / span 4; */
 }
 
 #subtitle {
     grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
     /* grid-row: 2;
     grid-column: 0 / span 4; */
+    text-align: center;
 }
 
-#timerLabel {
+/* #timerLabel {
     grid-column-start: 5;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
     font-family: "agenda-one", sans-serif;
     font-size: 20px;
-}
+} */
 
 #timer {
     grid-column-start: 5;
-    grid-column-end: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-family: "agenda-one", sans-serif;
+    font-weight: 900;
+    font-size: 200%;
+}
+
+#score {
+    grid-column-start: 5;
+    grid-column-end: 7;
     grid-row-start: 2;
     grid-row-end: 2;
     font-family: "agenda-one", sans-serif;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 150%;
+    word-wrap: on;
 }
 
 .card {
-    height: auto;
+    height: 200px; 
 }
 
 #card1 {
     grid-column-start: 1;
     grid-column-end: 1;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card2 {
     grid-column-start: 2;
     grid-column-end: 2;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card3 {
     grid-column-start: 3;
     grid-column-end: 3;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card4 {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card5 {
     grid-column-start: 5;
     grid-column-end: 5;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card6 {
     grid-column-start: 6;
     grid-column-end: 6;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 #card7 {
     grid-column-start: 1;
     grid-column-end: 1;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 #card8 {
     grid-column-start: 2;
     grid-column-end: 2;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 #card9 {
     grid-column-start: 3;
     grid-column-end: 3;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 #card10 {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row-start: 6;
+    grid-row-start: 4;
     grid-row-end: 4;
 }
 
 #card11 {
     grid-column-start: 5;
     grid-column-end: 5;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 #card12 {
     grid-column-start: 6;
     grid-column-end: 6;
-    grid-row-start: 6;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
 
 #card13 {
     grid-column-start: 1;
     grid-column-end: 1;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
 #card14 {
     grid-column-start: 2;
     grid-column-end: 2;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
-#card9 {
+#card15 {
     grid-column-start: 3;
     grid-column-end: 3;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
-#card10 {
+#card16 {
     grid-column-start: 4;
     grid-column-end: 4;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
-#card11 {
+#card17 {
     grid-column-start: 5;
     grid-column-end: 5;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
-#card12 {
+#card18 {
     grid-column-start: 6;
     grid-column-end: 6;
-    grid-row-start: 7;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }

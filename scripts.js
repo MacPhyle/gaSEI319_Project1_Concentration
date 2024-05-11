@@ -3,16 +3,19 @@
 let secondsRemaining = 16;
 
 function increment() {
-        secondsRemaining--
-        // document.getElementById("countdown").innerHTML = secondsRemaining;
-        console.log(secondsRemaining);
-        if (secondsRemaining == -1) {
-            console.log("TIME'S UP!");
-            return;
-        }
+    // for (let secondsRemaining = 16; secondsRemaining >= 0; secondsRemaining--)
+    secondsRemaining--
+    if (secondsRemaining >= 0) {
+        document.getElementById("countdown").innerHTML = `Seconds Remaining: ${secondsRemaining}`;
+        // console.log(secondsRemaining);
+    }else if (secondsRemaining == -1) {
+        document.getElementById("countdown").innerHTML = "TIME'S UP!";
+        // console.log("TIME'S UP!");
+        return;
+    }
 }
 
-setInterval(increment, 1000)
+setInterval(increment, 1000);
 
 
 
