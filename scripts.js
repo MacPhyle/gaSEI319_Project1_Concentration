@@ -1,108 +1,107 @@
-//countdown timer
+const cards = document.querySelectorAll(".card"),
+    timeTag = document.querySelector(".time b"),
+    flipsTag = document.querySelector(".flips b"),
+    scoreTag = document.querySelector(".score b"),
+    refreshBtn = document.querySelector(".details button");
 
-let secondsRemaining = 16;
+let maxTime = 60,
+    timeLeft = maxTime,
+    flips = 0,
+    matchedCard = 0,
+    score = 0,
+    disableDeck = false,
+    isPlaying = false,
+    cardOne,
+    cardTwo,
+    timer;
 
-function increment() {
-    // for (let secondsRemaining = 16; secondsRemaining >= 0; secondsRemaining--)
-    secondsRemaining--
-    if (secondsRemaining >= 0) {
-        document.getElementById("countdown").innerHTML = `Seconds Remaining: ${secondsRemaining}`;
-        // console.log(secondsRemaining);
-    }else if (secondsRemaining == -1) {
-        document.getElementById("countdown").innerHTML = "TIME'S UP!";
-        // console.log("TIME'S UP!");
-        return;
+function initTimer() {
+    if (timeLeft <= 0) {
+        return clearInterval(timer);
+    }
+    timeLeft--;
+    timeTag.innerText = timeLeft;
+}
+
+function flipCard({ target: clickedCard }) {
+    if (!isPlaying) {
+        isPlaying = true;
+        timer = setInterval(initTimer, 1000);
+    }
+    if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
+        flips++;
+        flipsTag.innerText = flips;
+        clickedCard.classList.add("flip");
+        if (!cardOne) {
+            return cardOne = clickedCard;
+        }
+        cardTwo = clickedCard;
+        disableDeck = true;
+        let cardOneImage = cardOne.querySelector(".back-view img").src,
+            cardTwoImage = cardTwo.querySelector(".back-view img").src;
+        matchCards(cardOneImage, cardTwoImage);
     }
 }
 
-setInterval(increment, 1000);
+function matchCards(image1, image2) {
+    if (image1 === image2) {
+        matchedCard++;
+        score += 10;
+        scoreTag.innerText = score;
+        if (matchedCard == 9 && timeLeft > 0) {
+            return clearInterval(timer);
+        }
+        cardOne.removeEventListener("click", flipCard);
+        cardTwo.removeEventListener("click", flipCard);
+        cardOne = cardTwo = "";
+        return disableDeck = false;
+    }
 
+    setTimeout(() => {
+        cardOne.classList.add("shake");
+        cardTwo.classList.add("shake");
+    }, 400);
 
+    setTimeout(() => {
+        cardOne.classList.remove("shake", "flip");
+        cardTwo.classList.remove("shake", "flip");
+        cardOne = cardTwo = "";
+        disableDeck = false;
+    }, 1200);
+}
 
-// touching card starts timer
+function shuffleCard() {
+    timeLeft = maxTime;
+    flips = matchedCard = 0;
+    cardOne = cardTwo = "";
+    clearInterval(timer);
+    console.log(timeTag);
+    console.log(timeLeft);
+    console.log(maxTime);
+    timeTag.innerText = timeLeft;
+    flipsTag.innerText = flips;
+    scoreTag.innerText = score;
+    disableDeck = isPlaying = false;
 
-// at begin of timer display 15
-// after 1s display 14
-// after 2nd 1s display 13
-// after 3rd 1s display 12
-// after 4th 1s display 11
-// after 5th 1s display 10
-// after 6th 1s display 9
-// after 7th 1s display 8
-// after 8th 1s display 7
-// after 9th 1s display 6
-// after 10th 1s display 5
-// after 11th 1s display 4
-// after 12th 1s display 3
-// after 13th 1s display 2
-// after 14th 1s display 1
-// after 15th 1s display 0
-// after 15th 1s display "TIME'S UP!"
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 
-// i=15 and is >= 0, run loop and decrease by 1
+    cards.forEach((card, index) => {
+        card.classList.remove("flip");
+        let imgTag = card.querySelector(".back-view img");
+        setTimeout(() => {
+            imgTag.src = `images/cardImage${arr[index]}.png`;
+        }, 500);
+        card.addEventListener("click", flipCard);
+    });
+}
 
-// let secondsRemaining = 15;
+shuffleCard();
 
-// function timeLoop() {
-//     if (secondsRemaining >= 0) {
-//         document.getElementById("timer").innerHTML = secondsRemaining;
-//         secondsRemaining--
-//     }else if (secondsRemaining = -1) {
-//         document.getElementById("timer").innerHTML = "TIME'S UP!"
-//         return;
-//     }
-// }
+refreshBtn.addEventListener("click", shuffleCard);
 
-// // setInterval
+cards.forEach(card => {
+    card.addEventListener("click", flipCard);
+});
 
-// timeLoop();
-
-// for (let i = 15; i >= 0; i--) {
-    
-// }
-
-// if i= -1 then display "TIME'S UP!"
-
-// const seconds = 
-
-// function startCountdown(seconds) {
-//     let counter = seconds;
-
-//     const interval = setInterval(() => {
-//         counter--;
-
-//         if (counter < 0) {
-//             clearInterval(interval);
-//         }
-//     }, 1000);
-// }
-
-// startCountdown(15);
-
-// document.getElementById("timer").innerHTML = seconds;
-
-// const startingMinutes = .25;
-
-// let time = startingMinutes * 60;
-
-// const countdownTimer = document.getElementById("countdown");
-
-// setInterval(updateCountdown, 1000);
-
-// function updateCountdown() {
-//     const minutes = Math.floor(time / 60);
-//     let seconds = time % 60;
-
-//     countdownTimer.innerHTML = `$(seconds)`;
-//     time--;
-// }
-
-// const endTimer = {
-//     if (time === 0) {
-//         clearInterval(updateCountdown)
-//         console.log("Time's Up!");
-//     }
-// }
-
-//cardflip
-
+console.log(index);
