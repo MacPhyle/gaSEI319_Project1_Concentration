@@ -7,7 +7,7 @@ I do much playing of a certain game that includes minigames, and one of those mi
 
 CONCENTRATION is available on the Web at this link:
 
-
+https://macphyle.github.io/gaSEI319_Project1_Concentration/
 
 If that link doesn't work, please download the code files and run the project from your code editor.
 
